@@ -14,7 +14,7 @@ public class HtmlToPdfController extends BaseController implements HtmlToPdfApi 
 
     @Override
     public String test() {
-        String cmd = "wkhtmltopdf baidu.com baidu.pdf";
+        String cmd = "wkhtmltopdf baidu.com baidu.pdf ~/.xrlj/bd.pdf";
         CmdExecUtils.execCommond(cmd);
         return null;
     }
