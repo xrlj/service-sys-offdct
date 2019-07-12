@@ -3,6 +3,7 @@ VOLUME /tmp
 ARG DEPENDENCY=target/dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/BOOT-INF/classes/wkpdf/simsun.ttc /usr/share/fonts
+COPY ${DEPENDENCY}/BOOT-INF/classes/wkpdf/arial/* /usr/share/fonts
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
 
