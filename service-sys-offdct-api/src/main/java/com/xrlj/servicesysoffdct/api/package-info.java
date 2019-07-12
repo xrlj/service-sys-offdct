@@ -1,4 +1,4 @@
 @GenApiImplAnnotation
-package com.xrlj.serviceauth.api;
+package com.xrlj.servicesysoffdct.api;
 
 import com.xrlj.framework.core.annotation.GenApiImplAnnotation;
