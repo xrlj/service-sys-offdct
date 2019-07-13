@@ -19,8 +19,8 @@ import org.springframework.web.multipart.MultipartFile;
 @FeignClient(name = "service-sys-filesystem", configuration = FilesystemClient.MultipartSupportConfig.class, fallbackFactory = FilesystemClientFallbackFactory.class)
 public interface FilesystemClient {
 
-    @PostMapping(value = "/sysFiles/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    VSysFileResp upload(@RequestPart("file") MultipartFile file, VFileUploadReq vFileUploadReq);
+    @PostMapping(value = "/sysFiles/upload")
+    VSysFileResp upload(@RequestPart("file") MultipartFile file);
 
     @PostMapping(value = "/sysFiles/uploadBase64")
     VSysFileResp uploadBase64(@RequestBody VFileUploadReq vFileUploadReq);
