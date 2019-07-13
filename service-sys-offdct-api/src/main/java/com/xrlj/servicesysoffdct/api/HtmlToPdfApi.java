@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * html转换成pdf。
  */
-@RequestMapping("/htmlToPdf}")
+@RequestMapping("/pdf")
 public interface HtmlToPdfApi {
 
     @GetMapping("/test")
