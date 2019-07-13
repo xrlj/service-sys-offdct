@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,6 +25,9 @@ public interface FilesystemClient {
 
     @PostMapping(value = "/sysFiles/uploadBase64")
     VSysFileResp uploadBase64(@RequestBody VFileUploadReq vFileUploadReq);
+
+    @PostMapping(value = "/sysFiles/uploadBytes", consumes="application/octet-stream;charset=UTF-8",produces="application/octet-stream;charset=UTF-8")
+    VSysFileResp uploadBytes(@RequestParam("fileData") byte[] fileData, @RequestParam("fileName") String fileName);
 
     class MultipartSupportConfig {
 
