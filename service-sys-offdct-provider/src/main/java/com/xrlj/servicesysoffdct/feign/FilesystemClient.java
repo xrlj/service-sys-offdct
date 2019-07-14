@@ -26,7 +26,7 @@ public interface FilesystemClient {
     @PostMapping(value = "/sysFiles/uploadBase64")
     VSysFileResp uploadBase64(@RequestBody VFileUploadReq vFileUploadReq);
 
-    @PostMapping(value = "/sysFiles/uploadBytes", consumes="application/octet-stream;charset=UTF-8",produces="application/octet-stream;charset=UTF-8")
+    @PostMapping(value = "/sysFiles/uploadBytes", headers = {"Content-Type=multipart/form-data"})
     VSysFileResp uploadBytes(@RequestParam("fileData") byte[] fileData, @RequestParam("fileName") String fileName);
 
     class MultipartSupportConfig {

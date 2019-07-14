@@ -27,35 +27,52 @@ public class HtmlToPdfController extends BaseController implements HtmlToPdfApi 
 
     @Override
     public String test() {
-        String filePath = getAppTmpFileDir().concat(File.separator).concat("baidu.pdf");
-        String cmd = "D:\\wkhtmltopdf\\bin\\wkhtmltopdf.exe baidu.com ".concat(filePath);
-        boolean b = CmdExecUtils.execCommond(cmd);
-        if (b) {
-            String fileBase64Str = Base64Utils.getFileBase64Str(filePath);
-            VFileUploadReq vFileUploadReq = new VFileUploadReq();
-            vFileUploadReq.setTag("wkpdf");
-            vFileUploadReq.setDescription("测试");
-            vFileUploadReq.setOriName("bd.pdf");
-            vFileUploadReq.setFileBase64Str(fileBase64Str);
-            VSysFileResp r = filesystemClient.uploadBase64(vFileUploadReq);
-            if (r != null) {
-                return r.getUrl();
-            }
+//        String filePath = getAppTmpFileDir().concat(File.separator).concat("baidu.pdf");
+//        String cmd = "D:\\wkhtmltopdf\\bin\\wkhtmltopdf.exe baidu.com ".concat(filePath);
+//        boolean b = CmdExecUtils.execCommond(cmd);
+//        if (b) {
+//            String fileBase64Str = Base64Utils.getFileBase64Str(filePath);
+//            VFileUploadReq vFileUploadReq = new VFileUploadReq();
+//            vFileUploadReq.setTag("wkpdf");
+//            vFileUploadReq.setDescription("测试");
+//            vFileUploadReq.setOriName("bd.pdf");
+//            vFileUploadReq.setFileBase64Str(fileBase64Str);
+//            VSysFileResp r = filesystemClient.uploadBase64(vFileUploadReq);
+//            if (r != null) {
+//                return r.getUrl();
+//            }
+//        }
+
+        String fileBase64Str = Base64Utils.getFileBase64Str("C:\\Users\\zmt\\Documents\\abd.pdf");
+        VFileUploadReq vFileUploadReq = new VFileUploadReq();
+        vFileUploadReq.setTag("wkpdf");
+        vFileUploadReq.setDescription("测试");
+        vFileUploadReq.setOriName("abd.pdf");
+        vFileUploadReq.setFileBase64Str(fileBase64Str);
+        VSysFileResp r = filesystemClient.uploadBase64(vFileUploadReq);
+        if (r != null) {
+            return r.getUrl();
         }
+
         return null;
     }
 
     @Override
     public String test2() throws IOException {
-        String filePath = getAppTmpFileDir().concat(File.separator).concat("bd.pdf");
-        String cmd = "D:\\wkhtmltopdf\\bin\\wkhtmltopdf.exe baidu.com ".concat(filePath);
-        boolean bb = CmdExecUtils.execCommond(cmd);
-        if (bb) {
-            byte[] data = FileUtils.readFileToByteArray(new File(filePath));
-            VSysFileResp r = filesystemClient.uploadBytes(data, "bd.pdf");
-            if (r != null) {
-                return r.getUrl();
-            }
+//        String filePath = getAppTmpFileDir().concat(File.separator).concat("bd.pdf");
+//        String cmd = "D:\\wkhtmltopdf\\bin\\wkhtmltopdf.exe baidu.com ".concat(filePath);
+//        boolean bb = CmdExecUtils.execCommond(cmd);
+//        if (bb) {
+//            byte[] data = FileUtils.readFileToByteArray(new File(filePath));
+//            VSysFileResp r = filesystemClient.uploadBytes(data, "bd.pdf");
+//            if (r != null) {
+//                return r.getUrl();
+//            }
+//        }
+        byte[] data = FileUtils.readFileToByteArray(new File("C:\\Users\\zmt\\Pictures\\Saved Pictures\\black.jpg"));
+        VSysFileResp r = filesystemClient.uploadBytes(data, "black.jpg");
+        if (r != null) {
+            return r.getUrl();
         }
         return null;
     }
