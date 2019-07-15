@@ -17,17 +17,17 @@ public class FilesystemClientFallbackFactory implements FallbackFactory<Filesyst
         return new FilesystemClient() {
             @Override
             public VSysFileResp upload(MultipartFile file) {
-                return null;
+                return new VSysFileResp();
             }
 
             @Override
             public VSysFileResp uploadBase64(VFileUploadReq vFileUploadReq) {
-                return null;
+                return new VSysFileResp();
             }
 
             @Override
             public VSysFileResp uploadBytes(byte[] fileData, String fileName) {
-                return null;
+                return new VSysFileResp();
             }
         };
     }
