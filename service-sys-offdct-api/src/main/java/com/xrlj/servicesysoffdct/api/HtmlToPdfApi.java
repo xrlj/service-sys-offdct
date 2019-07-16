@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * html转换成pdf。
  */
-@RequestMapping("/pdf")
+@RequestMapping("/htmlToPdf")
 public interface HtmlToPdfApi {
 
     @GetMapping("/test")

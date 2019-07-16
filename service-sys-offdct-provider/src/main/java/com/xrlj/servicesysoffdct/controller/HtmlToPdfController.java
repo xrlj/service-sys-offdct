@@ -43,11 +43,11 @@ public class HtmlToPdfController extends BaseController implements HtmlToPdfApi 
 //            }
 //        }
 
-        String fileBase64Str = Base64Utils.getFileBase64Str("C:\\Users\\zmt\\Documents\\abd.pdf");
+        String fileBase64Str = Base64Utils.getFileBase64Str("C:\\Users\\xinxiamu\\Pictures\\微信图片.jpg");
         VFileUploadReq vFileUploadReq = new VFileUploadReq();
         vFileUploadReq.setTag("wkpdf");
         vFileUploadReq.setDescription("测试");
-        vFileUploadReq.setOriName("abd.pdf");
+        vFileUploadReq.setOriName("微信图片.jpg");
         vFileUploadReq.setFileBase64Str(fileBase64Str);
         VSysFileResp r = filesystemClient.uploadBase64(vFileUploadReq);
         if (r != null) {
