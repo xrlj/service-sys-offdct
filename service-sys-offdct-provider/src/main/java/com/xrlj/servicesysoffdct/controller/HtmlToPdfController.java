@@ -28,7 +28,7 @@ public class HtmlToPdfController extends BaseController implements HtmlToPdfApi 
     @Override
     public String test() {
         String filePath = getAppTmpFileDir().concat(File.separator).concat("baidu.pdf");
-        String cmd = "D:\\wkhtmltopdf\\bin\\wkhtmltopdf.exe baidu.com ".concat(filePath);
+        String cmd = "wkhtmltopdf baidu.com  ".concat(filePath);
         boolean b = CmdExecUtils.execCommond(cmd);
         if (b) {
             String fileBase64Str = Base64Utils.getFileBase64Str(filePath);
