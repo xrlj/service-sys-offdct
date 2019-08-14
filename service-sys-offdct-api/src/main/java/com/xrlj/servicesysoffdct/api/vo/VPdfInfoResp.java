@@ -1,9 +1,12 @@
 package com.xrlj.servicesysoffdct.api.vo;
 
 import com.xrlj.framework.vo.VBaseResp;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class VPdfInfoResp extends VBaseResp {
 
     /**

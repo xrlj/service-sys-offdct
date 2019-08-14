@@ -2,6 +2,8 @@ package com.xrlj.servicesysoffdct.controller;
 
 import com.xrlj.framework.base.BaseController;
 import com.xrlj.servicesysoffdct.api.HtmlToPdfApi;
+import com.xrlj.servicesysoffdct.api.vo.VPdfInfoResp;
+import com.xrlj.servicesysoffdct.api.vo.req.VRenderingHtmlToPdfReq;
 import com.xrlj.servicesysoffdct.common.CmdExecUtils;
 import com.xrlj.servicesysoffdct.feign.FilesystemClient;
 import com.xrlj.servicesysoffdct.feign.vo.VFileUploadReq;
@@ -9,11 +11,11 @@ import com.xrlj.servicesysoffdct.feign.vo.VSysFileResp;
 import com.xrlj.utils.security.Base64Utils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 
@@ -24,6 +26,18 @@ public class HtmlToPdfController extends BaseController implements HtmlToPdfApi 
 
     @Autowired
     private FilesystemClient filesystemClient;
+
+    @Override
+    public VPdfInfoResp renderingHtmlToPdf(@Valid VRenderingHtmlToPdfReq vo) {
+        //TODO html转pdf
+        return null;
+    }
+
+    @Override
+    public VPdfInfoResp renderedHtmlToPdf(String renderedHtmlFileUri) {
+        //TODO html转pdf
+        return null;
+    }
 
     @Override
     public String test() {

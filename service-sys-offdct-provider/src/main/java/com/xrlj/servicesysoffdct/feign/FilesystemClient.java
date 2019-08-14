@@ -10,22 +10,20 @@ import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.support.SpringEncoder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @FeignClient(name = "service-sys-filesystem", configuration = FilesystemClient.MultipartSupportConfig.class, fallbackFactory = FilesystemClientFallbackFactory.class)
 public interface FilesystemClient {
 
-    @PostMapping(value = "/sysFiles/upload")
+    @RequestMapping(value = "/sysFiles/upload", method = RequestMethod.POST)
     VSysFileResp upload(@RequestPart("file") MultipartFile file);
 
-    @PostMapping(value = "/sysFiles/uploadBase64")
+    @RequestMapping(value = "/sysFiles/uploadBase64", method = RequestMethod.POST)
     VSysFileResp uploadBase64(@RequestBody VFileUploadReq vFileUploadReq);
 
-    @PostMapping(value = "/sysFiles/uploadBytes", headers = {"Content-Type=multipart/form-data"})
+    @RequestMapping(value = "/sysFiles/uploadBytes", method = RequestMethod.POST, produces = MediaType.MULTIPART_FORM_DATA_VALUE)
     VSysFileResp uploadBytes(@RequestParam("fileData") byte[] fileData, @RequestParam("fileName") String fileName);
 
     class MultipartSupportConfig {
