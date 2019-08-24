@@ -27,51 +27,17 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<fork>true</fork>
-					<maxmem>1024m</maxmem>
-					<meminitial>256m</meminitial>
-					<encoding>UTF-8</encoding>
-					<source>1.8</source>
-					<target>1.8</target>
-					<debug>true</debug>
-					<debuglevel>lines,vars,source</debuglevel>
-					<!-- [#2413] Make compiler warnings a bit more visible But don't fail
-                        (yet) -->
-					<compilerArgs>
-						<arg>-Xlint:varargs</arg>
-					</compilerArgs>
-				</configuration>
 			</plugin>
 
 			<!-- 执行命令：mvn javadoc:javadoc 将生成doc -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<!-- 显示私有变量 -->
-					<show>private</show>
-					<links>
-						<link>http://commons.apache.org/dbcp/apidocs/</link>
-					</links>
-					<!-- 排除不生成doc的包 -->
-					<!-- <excludePackageNames>com.ymu.framework.utils:com.ymu.framework.web.controller</excludePackageNames> -->
-					<!-- 生成doc路径 -->
-					<reportOutputDirectory>../../apidocs</reportOutputDirectory>
-					<!-- doc目录名称 -->
-					<!-- <destDir>ymu-framework</destDir> -->
-					<destDir>service-sys-offdct-api</destDir>
-				</configuration>
-				<!-- <dependencies> 自动修复不规范注解 <dependency> <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>clirr-maven-plugin</artifactId> <version>2.8</version> </dependency>
-                    </dependencies> -->
 			</plugin>
 
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
 				<artifactId>apt-maven-plugin</artifactId>
-				<version>1.1.3</version>
 				<executions>
 					<execution>
 						<goals>
