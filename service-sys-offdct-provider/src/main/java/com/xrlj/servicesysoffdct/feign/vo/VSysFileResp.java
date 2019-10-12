@@ -2,8 +2,10 @@ package com.xrlj.servicesysoffdct.feign.vo;
 
 import com.xrlj.framework.vo.VBaseResp;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class VSysFileResp extends VBaseResp {
 
     /**
