@@ -18,18 +18,8 @@ public class WebConfig extends AbstractInnerWebConfiguration {
      * @param registry
      */
     @Override
-    protected void addInterceptors(InterceptorRegistry registry) {
+    public void addInterceptors(InterceptorRegistry registry) {
         super.addInterceptors(registry);
     }
-
-    /**
-     * 统一异常处理。
-     * @param exceptionResolvers
-     */
-    @Override
-    protected void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
-        exceptionResolvers.add(new JsonHandlerExceptionResolver());
-    }
-
 
 }
