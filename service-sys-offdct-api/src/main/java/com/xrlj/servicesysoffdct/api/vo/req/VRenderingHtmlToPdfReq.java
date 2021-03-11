@@ -16,12 +16,11 @@ public class VRenderingHtmlToPdfReq extends VBaseReq {
     /**
      * 需要渲染的thymeleaf的html原始文件的网络路径。
      */
-    @NotBlank
+    @NotBlank(message = "待thymeleaf渲染html文件网络路径非空")
     private String renderingHtmlFileUri;
-
     /**
      * 需要渲染的数据。json字符串格式。
      */
-    @NotBlank
+    @NotBlank(message = "待渲染数据非空")
     private String dataJson;
 }

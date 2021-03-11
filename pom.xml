@@ -17,6 +17,7 @@
 
 	<properties>
 		<service-sys-offdct-api.version>0.0.1</service-sys-offdct-api.version>
+		<xrlj-feign-common.version>0.0.1-SNAPSHOT</xrlj-feign-common.version>
 	</properties>
 
 	<modules>
@@ -41,6 +42,11 @@
 				<groupId>com.xrlj</groupId>
 				<artifactId>service-sys-offdct-api</artifactId>
 				<version>${service-sys-offdct-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.xrlj</groupId>
+				<artifactId>xrlj-feign-common</artifactId>
+				<version>${xrlj-feign-common.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

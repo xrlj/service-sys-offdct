@@ -3,6 +3,7 @@ package com.xrlj.servicesysoffdct;
 import com.xrlj.framework.base.BaseSpringbootApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.Banner;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -18,11 +19,11 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 @ComponentScan(basePackages = {"com.xrlj.servicesysoffdct", "com.xrlj.framework"})
 @EnableDiscoveryClient
 @EnableEurekaClient //可注册到服务中心
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.xrlj.framework.feign"})
 @EnableCircuitBreaker
 @EnableRedisHttpSession
 @RefreshScope
-public class ServiceSysOffDctApplication extends BaseSpringbootApplication {
+public class ServiceSysOffDctApplication extends BaseSpringbootApplication implements CommandLineRunner {
 
     private static String clazzName  = ServiceSysOffDctApplication.class.getSimpleName();
 
@@ -31,5 +32,13 @@ public class ServiceSysOffDctApplication extends BaseSpringbootApplication {
         springApplication.setBannerMode(Banner.Mode.OFF);
         springApplication.run(args);
         log.info(">>>>>服务{}启动成功：{}", clazzName,args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        log.info(">>>>>系统初始化 start");
+
+        log.info(">>>>>系统初始化 end");
+
     }
 }
