@@ -36,6 +36,11 @@ public class PdfWorkerServiceImpl extends BaseServiceImpl implements PdfWorkerSe
     }
 
     @Override
+    public VSysFileResp pdfToWork(String pdfPath, String fileOriName) {
+        return null;
+    }
+
+    @Override
     public VSysFileResp htmlTemplateToPdf(String htmlTemplateUrl, Map data, String fileOriName) {
         return null;
     }

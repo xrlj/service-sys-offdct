@@ -65,7 +65,8 @@ public class DocWorkerServiceImpl extends BaseServiceImpl implements DocWorkerSe
             //上传文件
             VFileUploadReq vFileUploadReq = new VFileUploadReq();
             vFileUploadReq.setFileBase64Str(Base64Utils.getFileBase64Str(docFile.getPath()));
-            vFileUploadReq.setOriName(req.getOriName());
+            String oriName = FilenameUtils.getBaseName(req.getOriName()).concat(".").concat(FilenameUtils.getExtension(docFile.getPath()));
+            vFileUploadReq.setOriName(oriName);
             docxFileResp = filesystemClient.uploadBase64(vFileUploadReq);
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -85,11 +86,8 @@ public class DocWorkerServiceImpl extends BaseServiceImpl implements DocWorkerSe
     @Override
     public VSysFileResp docToPdf(String docPath, String fileOriName) {
         String fileEts = FilenameUtils.getExtension(docPath);
-        if (!fileEts.startsWith("doc") || !fileEts.startsWith("docx")) {
+        if (!fileEts.startsWith("doc") && !fileEts.startsWith("docx")) {
             throw APIs.error(1001, "文件格式错误", null);
-        }
-        if (!fileOriName.endsWith(".pdf")) {
-            throw APIs.error(1002, "文件保存名称后缀错误，须pdf的后缀", null);
         }
 
         File pdfFile = null;
@@ -103,7 +101,8 @@ public class DocWorkerServiceImpl extends BaseServiceImpl implements DocWorkerSe
             //上传文件到文件系统
             VFileUploadReq vFileUploadReq = new VFileUploadReq();
             vFileUploadReq.setFileBase64Str(Base64Utils.getFileBase64Str(pdfFile.getPath()));
-            vFileUploadReq.setOriName(fileOriName);
+            String oriName = FilenameUtils.getBaseName(fileOriName).concat(".").concat(FilenameUtils.getExtension(pdfFile.getPath()));
+            vFileUploadReq.setOriName(oriName);
             fileResp = filesystemClient.uploadBase64(vFileUploadReq);
         } catch (Exception e) {
             logger.error(e.getMessage());

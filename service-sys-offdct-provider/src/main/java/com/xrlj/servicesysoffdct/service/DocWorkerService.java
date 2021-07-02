@@ -20,7 +20,7 @@ public interface DocWorkerService extends BaseService {
     /**
      * doc文件转成pdf。
      * @param docPath   doc文件路径。本地绝对路径或者网络路径
-     * @param fileOriName   文件原始名称
+     * @param fileOriName   文件原始名称,不带后缀
      * @return  返回最终pdf存储路径信息
      */
     VSysFileResp docToPdf(String docPath, String fileOriName);

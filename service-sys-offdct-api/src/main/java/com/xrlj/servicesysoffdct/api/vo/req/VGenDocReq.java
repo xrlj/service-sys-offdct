@@ -18,7 +18,7 @@ public class VGenDocReq extends VBaseReq {
     private static final long serialVersionUID = 1970194200326297854L;
 
     /**
-     * 文件原始名称。带后缀
+     * 文件原始名称。不要带后缀
      */
     @NotBlank(message = "文件原始名称非空")
     private String oriName;

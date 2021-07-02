@@ -11,6 +11,14 @@ import java.util.Map;
 public interface PdfWorkerService extends BaseService {
 
     /**
+     * pdf转work。
+     * @param pdfPath
+     * @param fileOriName
+     * @return
+     */
+    VSysFileResp pdfToWork(String pdfPath, String fileOriName);
+
+    /**
      * html模板渲染并转pdf。
      * @param htmlTemplateUrl html模板文件网络路径
      * @param data  模板渲染数据
