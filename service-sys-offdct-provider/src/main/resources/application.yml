@@ -18,20 +18,15 @@ management:
     web:
       exposure:
         include: "*"
-server:
-  max-http-header-size: 104800 #配置请求头内容大小
-feign:
+office:
   client:
-    config:
-      default: #服务名，填写default为所有服务1
-        connectTimeout: 1000
-        readTimeout: 600000
-#debug: true #调试模式，将会看到更多的日志信息。默认关闭
-##===设置服务熔断超时
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 600000
+    platform: #ASPOSE、SPIRE、POI
+      gen-doc: POI
+      doc-to-pdf: ASPOSE
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000 # 10分钟

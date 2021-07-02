@@ -1,6 +1,6 @@
 FROM 120.79.2.30:8082/anapsix/alpine-java
 #FROM xinxiamu/wkhtmltopdf-java:latest
-VOLUME ["/tmp", "/logs", "~/.xrlj"]
+VOLUME ["/tmp", "/logs"]
 VOLUME /tmp
 ARG DEPENDENCY=target/dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib

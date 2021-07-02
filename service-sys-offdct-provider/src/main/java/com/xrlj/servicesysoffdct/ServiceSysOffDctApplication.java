@@ -23,7 +23,7 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 @EnableCircuitBreaker
 @EnableRedisHttpSession
 @RefreshScope
-public class ServiceSysOffDctApplication extends BaseSpringbootApplication implements CommandLineRunner {
+public class ServiceSysOffDctApplication extends BaseSpringbootApplication {
 
     private static String clazzName  = ServiceSysOffDctApplication.class.getSimpleName();
 
@@ -32,13 +32,5 @@ public class ServiceSysOffDctApplication extends BaseSpringbootApplication imple
         springApplication.setBannerMode(Banner.Mode.OFF);
         springApplication.run(args);
         log.info(">>>>>服务{}启动成功：{}", clazzName,args);
-    }
-
-    @Override
-    public void run(String... args) throws Exception {
-        log.info(">>>>>系统初始化 start");
-
-        log.info(">>>>>系统初始化 end");
-
     }
 }

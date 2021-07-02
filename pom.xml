@@ -28,12 +28,22 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.xrlj</groupId>
+			<artifactId>xrlj-configuration-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.xrlj</groupId>
 			<artifactId>xrlj-infrastructure</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.xrlj</groupId>
+			<artifactId>xrlj-feign-common</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
@@ -42,6 +52,11 @@
 				<groupId>com.xrlj</groupId>
 				<artifactId>service-sys-offdct-api</artifactId>
 				<version>${service-sys-offdct-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.xrlj</groupId>
+				<artifactId>xrlj-configuration-web</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.xrlj</groupId>
