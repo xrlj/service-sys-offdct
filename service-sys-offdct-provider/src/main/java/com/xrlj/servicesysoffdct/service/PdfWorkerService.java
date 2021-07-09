@@ -3,7 +3,9 @@ package com.xrlj.servicesysoffdct.service;
 
 import com.xrlj.framework.base.BaseService;
 import com.xrlj.framework.feign.vo.VSysFileResp;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -35,4 +37,6 @@ public interface PdfWorkerService extends BaseService {
      * @return  pdf文件保存信息
      */
     VSysFileResp ftlTemplateToPdf(String ftlTemplateUrl, Map data, String fileOriName);
+
+    Serializable getKeyCoordinate(@PathVariable(name = "key") String key);
 }
