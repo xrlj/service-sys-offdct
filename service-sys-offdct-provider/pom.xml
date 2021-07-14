@@ -124,9 +124,17 @@
         <dependency>
             <groupId>com.aspose</groupId>
             <artifactId>aspose-words</artifactId>
-            <version>21.6</version>
+            <version>21.1</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/lib/aspose-words-21.1-jdk17.jar</systemPath>
+        </dependency>
+        <!--使用文档 https://docs.aspose.com/pdf/java/-->
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-pdf</artifactId>
+            <version>20.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/aspose-pdf-crack-20.8.jar</systemPath>
         </dependency>
 
         <!--pdf处理库 itextpdf-->
@@ -140,6 +148,14 @@
             <version>7.1.16</version>
             <type>pom</type>
         </dependency>
+        <!--把扫描的图片文件转成可编辑的pdf文件，依赖ocr开源库tesseract4-->
+        <!--需要本地安装tesseract4应用-->
+        <!--中文无法识别-->
+        <!--<dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>pdfocr-tesseract4</artifactId>
+            <version>1.0.3</version>
+        </dependency>-->
     </dependencies>
 
     <build>

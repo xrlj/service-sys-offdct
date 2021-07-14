@@ -1,7 +1,7 @@
 package com.xrlj.servicesysoffdct.api;
 
 import com.xrlj.framework.feign.vo.VSysFileResp;
-import com.xrlj.servicesysoffdct.api.vo.req.ToPdfReq;
+import com.xrlj.servicesysoffdct.api.vo.req.VToPdfReq;
 import com.xrlj.servicesysoffdct.api.vo.req.VGenDocReq;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,5 +27,5 @@ public interface DocWorkerApi {
      * @return pdf网络存储信息
      */
     @PostMapping("/docToPdf")
-    VSysFileResp docToPdf(@RequestBody ToPdfReq req);
+    VSysFileResp docToPdf(@RequestBody VToPdfReq req);
 }

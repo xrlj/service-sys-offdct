@@ -46,9 +46,9 @@ public class DocWorkerServiceImpl extends BaseServiceImpl implements DocWorkerSe
     @Override
     public VSysFileResp genDocByTemplate(VGenDocReq req) {
         Objects.requireNonNull(req);
-        APIsAssert.fileNotNull(req.getDocTemplateUrl(), "docTemplateUrl");
-        APIsAssert.fileNotNull(req.getData(), "data");
-        APIsAssert.fileNotNull(req.getOriName(), "oriName");
+        APIsAssert.fieldNotNull(req.getDocTemplateUrl(), "docTemplateUrl");
+        APIsAssert.fieldNotNull(req.getData(), "data");
+        APIsAssert.fieldNotNull(req.getOriName(), "oriName");
         String ets = FilenameUtils.getExtension(req.getDocTemplateUrl());
         if (!ets.startsWith("docx")) {
             throw APIs.error(1001, "word类型错误，必须docx类型", null);

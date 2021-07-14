@@ -3,7 +3,7 @@ package com.xrlj.servicesysoffdct.controller;
 import com.xrlj.framework.base.BaseController;
 import com.xrlj.framework.feign.vo.VSysFileResp;
 import com.xrlj.servicesysoffdct.api.DocWorkerApi;
-import com.xrlj.servicesysoffdct.api.vo.req.ToPdfReq;
+import com.xrlj.servicesysoffdct.api.vo.req.VToPdfReq;
 import com.xrlj.servicesysoffdct.api.vo.req.VGenDocReq;
 import com.xrlj.servicesysoffdct.service.DocWorkerService;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class DocWorkerController extends BaseController implements DocWorkerApi 
     }
 
     @Override
-    public VSysFileResp docToPdf(ToPdfReq req) {
+    public VSysFileResp docToPdf(VToPdfReq req) {
         return docWorkerService.docToPdf(req.getOriFilePath(), req.getOriName());
     }
 

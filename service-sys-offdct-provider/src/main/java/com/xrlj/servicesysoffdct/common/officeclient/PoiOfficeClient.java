@@ -4,6 +4,7 @@ import com.deepoove.poi.XWPFTemplate;
 import com.deepoove.poi.config.Configure;
 import com.deepoove.poi.plugin.table.LoopRowTableRenderPolicy;
 import com.xrlj.framework.spring.Base;
+import com.xrlj.servicesysoffdct.common.ImgType;
 import com.xrlj.utils.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -52,5 +54,10 @@ class PoiOfficeClient extends Base implements OfficeClient {
         }
 
         return docFile;
+    }
+
+    @Override
+    public List<File> pdfToImg(String pdfPath, Integer page, Integer resolution, ImgType imgType) {
+        return null;
     }
 }

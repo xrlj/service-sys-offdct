@@ -18,15 +18,19 @@ management:
     web:
       exposure:
         include: "*"
+
+#移到外部配置文件
 office:
   client:
     platform: #ASPOSE、SPIRE、POI
       gen-doc: POI
       doc-to-pdf: ASPOSE
+      pdf-to-img: ASPOSE
+#移到外部配置文件
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 600000 # 10分钟
+            timeoutInMilliseconds: 600000 # 10分钟,熔断超时
