@@ -64,10 +64,11 @@
         </dependency>
 
         <!--excel导入、导出-->
+        <!--https://github.com/alibaba/easyexcel-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
-            <version>2.2.10</version>
+            <version>3.0.5</version>
             <!--和下面以来冲突，排除-->
             <exclusions>
                 <exclusion>
@@ -113,11 +114,11 @@
         <!--word处理,免费版本很多功能受限制，比如word转pdf，只能转前三页等等。实际还是得买企业版-->
         <!--https://www.e-iceblue.cn/-->
         <!--https://www.e-iceblue.cn/licensing/install-spirepdf-for-java-from-maven-repository.html-->
-        <dependency>
+        <!--<dependency>
             <groupId>e-iceblue</groupId>
             <artifactId>spire.doc.free</artifactId>
             <version>3.9.0</version>
-        </dependency>
+        </dependency>-->
 
         <!--word转pdf，破解版本-->
         <!--https://github.com/aspose-->
@@ -180,10 +181,10 @@
     </build>
 
     <repositories>
-        <repository>
+        <!--<repository>
             <id>com.e-iceblue</id>
-            <url>http://repo.e-iceblue.cn/repository/maven-public/</url>
-        </repository>
+            <url>https://repo.e-iceblue.cn/repository/maven-public/</url>
+        </repository>-->
     </repositories>
 
 </project>

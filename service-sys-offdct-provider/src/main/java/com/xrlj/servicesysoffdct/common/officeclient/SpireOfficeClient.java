@@ -1,15 +1,11 @@
 package com.xrlj.servicesysoffdct.common.officeclient;
 
-import com.spire.doc.Document;
-import com.spire.doc.FileFormat;
 import com.xrlj.framework.spring.Base;
 import com.xrlj.servicesysoffdct.common.ImgType;
-import com.xrlj.utils.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +21,7 @@ class SpireOfficeClient extends Base implements OfficeClient {
     @Override
     public File docToPdf(String docPath) {
         try {
-            Document document = null;
+            /*Document document = null;
             if (docPath.startsWith("http")) {
                 InputStream i = getNetFileAsStream(docPath);
                 document.loadFromStream(i, FileFormat.Doc);
@@ -36,7 +32,9 @@ class SpireOfficeClient extends Base implements OfficeClient {
             String pdfFilePath = getAppTmpFileDir().concat(StringUtil.getUUID()).concat(".pdf");
             File pdfFile = new File(pdfFilePath);
             document.saveToFile(pdfFilePath, FileFormat.PDF);
-            return pdfFile;
+            return pdfFile;*/
+
+            return null;
         } catch (Exception e) {
             log.error(e.getMessage());
         }
