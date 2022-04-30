@@ -157,30 +157,31 @@ public class PdfWorkerServiceImpl extends BaseServiceImpl implements PdfWorkerSe
 
     @Override
     public VSysFileResp imgToPdf(String imgPath, String fileOriName) {
-        File pdfFile = null;
+        APIsAssert.fieldNotNull(imgPath, "imgPath");
+        APIsAssert.fieldNotNull(fileOriName, "fileOriName");
+
+        String ets = FilenameUtils.getExtension(imgPath);
+        if (ets.startsWith("jpg") && ets.startsWith("png")) {
+            throw APIs.error(1001, "图片格式为jpg或png", null);
+        }
+
+        File pdfFile;
         try {
-            APIsAssert.fieldNotNull(imgPath, "imgPath");
-            APIsAssert.fieldNotNull(fileOriName, "fileOriName");
-
-            String ets = FilenameUtils.getExtension(imgPath);
-            if (!ets.startsWith("jpg") || !ets.startsWith("png")) {
-                throw APIs.error(1001, "图片格式为jpg或png", null);
-            }
-
             // file:///C:/Users/Administrator/Pictures/aa.png
             byte[] imgBytes = IOUtils.toByteArray(new URI(imgPath));
             byte[] pdfBytes = convertImageBytesToPdfBytes(imgBytes);
             pdfFile = new File(getAppTmpFileDir().concat(StringUtil.getUUID()).concat(".pdf"));
             FileUtils.writeByteArrayToFile(pdfFile, pdfBytes);
-
-            return UploadFileUtils.uploadFile(pdfFile.getPath(), fileOriName, filesystemClient);
         } catch (Exception e) {
-            throw APIs.error(500, "图片转pdf异常", null);
-        } finally {
-            if (pdfFile != null) {
-                pdfFile.delete();
-            }
+            logger.error(e.getMessage());
+            throw APIs.error(1002, "文件转换错误", null);
         }
+
+        VSysFileResp vSysFileResp = UploadFileUtils.uploadFile(pdfFile.getPath(), fileOriName, filesystemClient);
+        if (pdfFile != null) {
+            pdfFile.delete();
+        }
+        return vSysFileResp;
     }
 
     @Override
@@ -211,7 +212,7 @@ public class PdfWorkerServiceImpl extends BaseServiceImpl implements PdfWorkerSe
             throw APIs.error(1003, "转换异常", null);
         } finally {
             if (fileList != null) {
-                for (File file: fileList) {
+                for (File file : fileList) {
                     if (file != null && file.isFile()) {
                         file.delete();
                     }
