@@ -108,7 +108,7 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-scratchpad</artifactId>
-            <version>4.1.2</version>
+            <version>5.2.1</version>
         </dependency>
 
         <!--word处理,免费版本很多功能受限制，比如word转pdf，只能转前三页等等。实际还是得买企业版-->
