@@ -146,7 +146,7 @@
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itext7-core</artifactId>
-            <version>7.1.16</version>
+            <version>7.2.0</version>
             <type>pom</type>
         </dependency>
         <!--把扫描的图片文件转成可编辑的pdf文件，依赖ocr开源库tesseract4-->
