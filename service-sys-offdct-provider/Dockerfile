@@ -1,10 +1,14 @@
-FROM 120.79.2.30:8082/anapsix/alpine-java
+FROM xinxiamu/alpine-java:11
 #FROM xinxiamu/wkhtmltopdf-java:latest
 VOLUME ["/tmp", "/logs"]
-VOLUME /tmp
+
+#captcher 字体包,注意必须加上‘--allow-untrusted’允许不可信
+RUN set -xe \
+&& apk --no-cache add ttf-dejavu fontconfig --allow-untrusted
+
 ARG DEPENDENCY=target/dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
 
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.xrlj.servicesysoffdct.ServiceSysOffDctApplication"]
+ENTRYPOINT ["java","-Djava.awt.headless=true","-cp","app:app/lib/*","com.xrlj.servicesysoffdct.ServiceSysOffDctApplication"]
